@@ -17,7 +17,6 @@ public class Endpoint : Endpoint<Request>
         {
             HttpContext.MarkResponseStart();
             HttpContext.Response.StatusCode = 200;
-            HttpContext.Response.Headers.ContentDisposition = "attachment; filename=\"test.json\"";
             await Data.ReadFileFromStorage(req.FileName, HttpContext.Response.Body, ct);
         }
         catch (Exception e)
